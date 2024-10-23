@@ -24,7 +24,8 @@ export class AuthService {
   user$ = this.authSubject$
     .asObservable() //contiene dati sull'utente se è loggato
     .pipe(
-      tap((accessData) => this.isLoggedIn == !!accessData),
+      tap((accessData) => (this.isLoggedIn = !!accessData)),
+      tap((accessData) => console.log(this.isLoggedIn)),
       map((accessData) => accessData?.user)
     );
 
@@ -41,6 +42,7 @@ export class AuthService {
     return this.http.post<iResponseData>(this.loginUrl, dataLogin).pipe(
       tap((authData) => {
         this.authSubject$.next(authData);
+
         localStorage.setItem('loginData', JSON.stringify(authData));
 
         const expData = this.jwtHelper.getTokenExpirationDate(
@@ -76,8 +78,9 @@ export class AuthService {
     if (!savedUser) return;
     const loginResponse: iResponseData = JSON.parse(savedUser);
 
-    if (this.jwtHelper.getTokenExpirationDate(loginResponse.accessToken)) {
+    if (this.jwtHelper.isTokenExpired(loginResponse.accessToken)) {
       //controllo se l'utente che è salvato nel localStorage ha il token scaduto
+
       localStorage.removeItem('loginData');
       return;
     }

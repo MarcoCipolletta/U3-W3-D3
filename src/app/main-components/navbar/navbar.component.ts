@@ -12,7 +12,10 @@ export class NavbarComponent {
   isLoggedIn: boolean = false;
 
   ngOnInit() {
-    this.isLoggedIn = this.authSvc.isLoggedIn;
+    this.authSvc.user$.subscribe((test) => {
+      console.log('test', test);
+      this.isLoggedIn = !!test;
+    });
   }
 
   logout() {
