@@ -1,3 +1,28 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "m@c.it",
+      "password": "$2a$10$LiC3GNWBWdn.BTvCcYVfzOpgGCuD2UlegOsYidp3mex04hbJ6HQvO",
+      "name": "ciao",
+      "id": 1
+    },
+    {
+      "email": "ma@c.it",
+      "password": "$2a$10$t3VwLME9Pj85hmgLlErNmelBLRTrsiwIAngHCbhy/..1N0tgbPYc6",
+      "name": "ciao",
+      "id": 2
+    },
+    {
+      "email": "mar@ti.it",
+      "password": "$2a$10$ytJMiEpqIeJlb2PjlbRWr.KrRbeCaKql4oAp/n5RLTNpxt9LAZrpe",
+      "name": "ciao",
+      "id": 3
+    },
+    {
+      "email": "m@ca.it",
+      "password": "$2a$10$3hKlADmmwppq448Y7.15cu0swWJs89ra0O9rjhOSG.JMrnAJGMufa",
+      "name": "ciao",
+      "id": 4
+    }
+  ]
 }

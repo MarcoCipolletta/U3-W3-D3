@@ -33,6 +33,8 @@ export class AuthService {
   }
 
   register(newUser: Partial<iUser>) {
+    console.log(this.registerUrl);
+
     return this.http.post<iResponseData>(this.registerUrl, newUser);
   }
   login(dataLogin: ILogin) {
